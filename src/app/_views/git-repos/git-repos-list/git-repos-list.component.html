@@ -1,0 +1,20 @@
+<div class="search-results" infiniteScroll [infiniteScrollDistance]="3" [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()">
+  <div class="row " id="mainDiv" *ngFor="let item of data$">
+    <div class="col-md-2">
+      <img class="imageClass" id="avatar" src={{item.owner.avatar_url}} />
+    </div>
+    <div class="col-md-10" id="userDetails">
+      <h3>{{item.name}}</h3>
+      <span>{{item.description}}</span>
+      <div class="row" id="userRatings">
+        <button type="button" class="btn btn-primary" id="starsCount">Stars: {{item.stargazers_count |
+          starsCount}}</button>
+        <button type="button" class="btn btn-primary" id="starsCount">Issues: {{item.open_issues_count |
+          starsCount}}</button>
+        <span id="userName">Submitted {{ item.created_at | dateDiff }} days ago by
+          {{item.owner.login}}</span>
+      </div>
+    </div>
+  </div>
+</div>
